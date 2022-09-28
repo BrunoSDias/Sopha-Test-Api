@@ -1,24 +1,56 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Avaliação Sopha
+## Para iniciar
+Realize um **fork** desse repositório
+**clone** o projeto do fork
 
-* Ruby version
+Execute o comando para provisionar a aplicação:
 
-* System dependencies
+    $ docker-compose up --build
 
-* Configuration
+## Sobre
+O candidato deve fazer um **fork** deste repositório e realizar um **pull request** com o código do teste pronto antes do prazo de vencimento do desafio.
 
-* Database creation
+## Objetivo
 
-* Database initialization
+O candidato deve criar uma **API** responsável por gerenciar um catalogo de lojas (**Store**)  e hospedá-lo em uma instância **AWS EC2**.
 
-* How to run the test suite
+## Estrutura
+Essa **API** deve ser constituída por:
 
-* Services (job queues, cache servers, search engines, etc.)
+ - Um Model **User** com os atributos **name, email e password**
+ - Um Model **Store** com os atributos **name, user_id**
+ -  Onde:
+	 - **Store** pertence à **User**
+	 
+## Funcionalidade
+As seguintes requisições devem ser possíveis:
 
-* Deployment instructions
+ - Processo de autenticação de um **User** (Signup, Signin)
+  - Requisições de **CRUD** (Create, Read, Update, Delete) para **Store**  (Estas requisições só devem ser possíveis se o usuário estiver autenticado)
 
-* ...
+
+## Conhecimentos necessários
+-  Ruby
+-  Ruby on Rails
+-  AWS EC2
+-  Servidores HTTP
+-  SQL
+-  Postgres 
+-   Git
+
+## Requisitos
+
+-   Docker
+
+## O que esperamos da solução
+
+ -  Que todas as ações requisitadas funcionem.
+ -  Que haja testes automatizados sobre essas ações (TDD).
+ -  Que seja possível testar essas ações do ambiente local (Localhost) na **aplicação hospedada**.
+ -  Instruções de uso no README.md
+	 - Como rodar os testes da aplicação
+	 - Quais os **endpoints** devo acessar para realizar as requisições esperadas na **aplicação hospedada**
+	 - Quais os **parâmetros** e/ou **cabeçalhos**  devo enviar para realizar cada uma das requisições esperadas na **aplicação hospedada**
+ -  É **Opcional** utilizar **docker** na **aplicação hospedada**.

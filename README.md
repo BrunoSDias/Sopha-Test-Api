@@ -54,3 +54,9 @@ As seguintes requisições devem ser possíveis:
 	 - Quais os **endpoints** devo acessar para realizar as requisições esperadas na **aplicação hospedada**
 	 - Quais os **parâmetros** e/ou **cabeçalhos**  devo enviar para realizar cada uma das requisições esperadas na **aplicação hospedada**
  -  É **Opcional** utilizar **docker** na **aplicação hospedada**.
+ - Uso de **gems** adicionais também é opcional
+
+## O que avaliaremos
+
+ - Funcionalidade
+ - Boas práticas

@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   before_action :store, only: %i[show update destroy]
-  before_action :authenticate_user!, only: %i[create show update destroy]
+  before_action :authenticate_user!
 
   def create
     store = Store.new(store_params)

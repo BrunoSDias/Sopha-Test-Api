@@ -8,9 +8,10 @@ RSpec.describe "Stores", type: :request do
       let(:store_params) { attributes_for(:store, user_id: user.id) }
 
       before do
+        user
         store_params
 
-        post '/stores', params: { store: store_params }
+        post '/stores', params: { store: store_params }, headers: login_user(user)
       end
 
       it 'must return the store created and the 201 status code' do
@@ -24,9 +25,10 @@ RSpec.describe "Stores", type: :request do
       let(:store_params) { attributes_for(:store, name: nil, user_id: nil) }
 
       before do
+        user
         store_params
 
-        post '/stores', params: { store: store_params }
+        post '/stores', params: { store: store_params }, headers: login_user(user)
       end
 
       it 'must return the message error and the 422 status code' do
@@ -42,9 +44,10 @@ RSpec.describe "Stores", type: :request do
       let(:store) { create(:store, user_id: user.id) }
   
       before do
+        user
         store
   
-        get "/stores/#{store.id}"
+        get "/stores/#{store.id}", headers: login_user(user)
       end
   
       it 'must return the store created and the 200 status code' do
@@ -61,10 +64,11 @@ RSpec.describe "Stores", type: :request do
       let(:store_params) { attributes_for(:store, name: "efgh", user_id: user.id) }
 
       before do
+        user
         store
         store_params
 
-        put "/stores/#{store.id}", params: { store: store_params }
+        put "/stores/#{store.id}", params: { store: store_params }, headers: login_user(user)
       end
 
       it 'must return the 204 status code' do
@@ -79,9 +83,10 @@ RSpec.describe "Stores", type: :request do
       let(:store) { create(:store, user_id: user.id) }
   
       before do
+        user
         store
 
-        delete "/stores/#{store.id}"
+        delete "/stores/#{store.id}", headers: login_user(user)
       end
   
       it 'must return the store count and the 204 status code' do

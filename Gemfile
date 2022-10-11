@@ -9,8 +9,10 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'active_model_serializers', '~> 0.10.13'
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'devise_token_auth'
 gem 'rails', '~> 5.1.3'
 # Use postgresql as the database for Active Record
+gem 'omniauth', '~> 2.1'
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

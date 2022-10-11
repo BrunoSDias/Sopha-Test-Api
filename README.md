@@ -72,51 +72,105 @@ As seguintes requisições devem ser possíveis:
  lembre de usar o prefixo "docker compose exec web bundle exec" antes.
 
  ## Endpoints
+ - Login: "/auth/sign_in"
+	verbo http: POST
+
+	**request_body**:
+		{
+			"email": "username@email.com",
+			"password": "123123123"
+		}
+
+
+	**response_body**:
+     {
+      "data": {
+          "id": 1,
+          "email": "johndoe@gmail.com",
+          "provider": "email",
+          "name": "John Doe",
+          "uid": "johndoe@gmail.com"
+      }
+    }
+
+------------------------------------------
+
+  - Cadastro: "/auth"
+    verbo http: POST
+
+  **request_body**:
+		{
+      "name": "username",
+			"email": "username@email.com",
+			"password": "123123123"
+		}
+
+
+  **response_body**:
+    {
+      "id": null,
+      "email": "johndoe@gmail.com",
+      "name": "John Doe",
+      "created_at": null,
+      "updated_at": null,
+      "provider": "email",
+      "uid": ""
+    }
+
+-------------------------------------------
+
  - Criar loja: "/stores"
-	**request_body**: {
+	verbo http: POST
+
+	**request_body**: 
+  {
 		store: {
 			name: "myStore",
 			user_id: 1
 		}
 	}
 
-	**response_body**{
+	**response_body**:
 		{
 			id: 1,
 			name: "myStore",
 			user_id: 1
 		}
-	}
 
 	status_code: 201
 -----------------------------------------
  - Visualizar loja: "/stores/:id"
+	verbo http: GET
+
 	**parametro**: ID da loja
 
-	**response_body**: {
+	**response_body**:
 		{
 			id: 1,
 			name: "myStore"
 		}
-	}
 
 	status_code: 200
 -----------------------------------------
  - Editar loja: "/stores/:id"
+	verbo http: PUT
+
 	**parametro**: ID da loja
 
-	**request_body**: {
+	**request_body**:
 		store: {
 			name: "myNewStore",
 			user_id: 1
 		}
-	}
+
 
 	**response_body**: Não terá nenhuma informação na resposta da request
 
 	status_code: 204
 ------------------------------------------
  - Deletar loja: "/stores/:id"
+	verbo http: DELETE
+
 	**parametro**: ID da loja
 
 	**response_body**: Não terá nenhuma informação na resposta da request

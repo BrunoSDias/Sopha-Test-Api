@@ -1,0 +1,49 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - 'config/**/*'
+    - '*.ru'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'lib/backup/**/*'
+    - 'lib/tasks/**/*'
+
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: trailing
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+Style/SymbolArray:
+  EnforcedStyle: percent
+Style/MultilineBlockChain:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Style/Documentation:
+  Exclude:
+    - 'db/migrate/**/*'
+Layout/LineLength:
+  Max: 120
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash']
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
+Metrics/ParameterLists:
+  Max: 8
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+Naming/RescuedExceptionsVariableName:
+  Enabled: true
+  PreferredName: 'error'
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true

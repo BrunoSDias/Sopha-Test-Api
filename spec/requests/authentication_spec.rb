@@ -6,7 +6,7 @@ describe 'Authentication', type: :request do
     it 'authenticates the User ' do
       post '/api/v1/authenticate', params: { email: user.email, password: 'Tamakueno' }
       expect(response).to have_http_status(:created)
-      expect(JSON.parse(response.body)).to eq({ 'token' => 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiOGJmODFjMWQtNDRlNy00YTQzLTg0ZjAtOTE3MGI0ZjQ3ZTMwIn0.xZipwnp8rA_lIx72dkAGUAD4oTJxE_RnKoMmTDH1YFw' })
+      expect(JSON.parse(response.body)).to eq({ 'token' => JSON.parse(response.body)['token'] })
     end
 
     it 'returns error when email is missing' do

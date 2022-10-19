@@ -60,3 +60,29 @@ As seguintes requisições devem ser possíveis:
 
  - Funcionalidade
  - Boas práticas
+
+# Informações adicionadas pelo candidato
+
+### Para rodar os teste da aplicação
+
+```
+    rpsec 
+```
+
+## API Endpoints
+
+A API irá expôr os seguintes RESTful endpoints.
+### BaseUrl: {Host-URL}/api/v1
+
+| Endpoint                | Funcionalidade               |
+|-------------------------|------------------------------|
+| POST /users             | Signup                       |
+| POST /authenticate      | Login                        |
+| POST /stores            | Add a new Store              |
+| GET /stores/:i          | Show the store               |
+| DELETE /cars/:id        | Delete a store               |
+| PUT /cars/:id           | Update a store               |
+
+
+## Documentação da API
+[Sopha Test API](https://documenter.getpostman.com/view/23638188/2s847BVGhC)

@@ -45,7 +45,7 @@ As seguintes requisições devem ser possíveis:
 -   Docker
 
 ## O que esperamos da solução
-
+ -  A aplicacão **DEVE** estar hospedada em uma instância **AWS EC2**
  -  Que todas as ações requisitadas funcionem.
  -  Que haja testes automatizados sobre essas ações (TDD).
  -  Que seja possível testar essas ações do ambiente local (Localhost) na **aplicação hospedada**.

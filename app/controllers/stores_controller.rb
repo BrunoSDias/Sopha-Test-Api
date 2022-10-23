@@ -15,7 +15,7 @@ class StoresController < ApplicationController
   end
 
   def update #patch request
-    @store.update_attributes(name: params[:new_name])
+    @store.update_attributes(name: store_params[:name])
     
     render json: @store
   end
@@ -30,7 +30,7 @@ class StoresController < ApplicationController
 
   private
     def store_params
-      params.require(:store).permit(:name).merge(user_id: current_user.id)
+      params.require(:store).permit(:id, :name).merge(user_id: current_user.id)
     end
 
     def set_stores
@@ -38,6 +38,6 @@ class StoresController < ApplicationController
     end
 
     def set_store
-      @store = Store.find_by(store_params)
+      @store = Store.find_by(id: store_params[:id])
     end
 end

@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - /tmp/db:/var/lib/postgresql/data
+      - .:/sopha_challenge:cached
     ports:
       - "5432:5432"
     environment:

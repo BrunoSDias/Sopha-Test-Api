@@ -9,11 +9,11 @@
  docker-compose up -d
 ```
 
-# Authentication
-- POST '/auth' with params {email: your_email, password: your_password, password_confirmation: your_password_again} to register a USER in API
-- POST '/auth/sign_in' with params {email: your_email, password: your_password} that will give you a Bearer Token in response header which will be used to make the '/stores' requests
-## Endpoints
+## Authentication
+ - POST '/auth' with params {email: your_email, password: your_password, password_confirmation: your_password_again} to register a USER in API
+ - POST '/auth/sign_in' with params {email: your_email, password: your_password} that will give you a Bearer Token in response header which will be used to do requests in '/stores'
 
+## Endpoints
  - GET '/stores' to SHOW ALL stores registered in your user
 
  - POST '/stores' params{name: "Example"} to CREATE a STORE to your user

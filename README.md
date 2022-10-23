@@ -22,5 +22,8 @@
 
  - DELETE '/stores params{id: your_store_id} to DELETE your STORE
 
+## EC2 Address
+ - 54.221.69.141:3000 
+
 
 	

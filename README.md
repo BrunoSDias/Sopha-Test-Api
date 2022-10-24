@@ -28,3 +28,6 @@
 
 ## EC2 Address
  - 54.221.69.141:3000 
+ 
+## To run tests
+ ``` $ rspec```

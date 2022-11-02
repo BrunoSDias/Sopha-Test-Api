@@ -13,4 +13,4 @@ production:
   <<: *default
   database: sopha-api-test_production
   username: sopha-api-test
-  password: Rails.application.credential.dig(:production, :db_password)
+  password: Rails.application.credentials.dig(:production, :db_password)

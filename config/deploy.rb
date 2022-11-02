@@ -1,4 +1,4 @@
-lock "~> 3.14.0"
+lock "~> 3.17.1"
 
 require 'capistrano-db-tasks'
 

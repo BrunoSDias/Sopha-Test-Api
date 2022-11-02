@@ -1,6 +1,8 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
+  host: db
+  username: postgres
+  password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -13,4 +15,4 @@ production:
   <<: *default
   database: sopha-api-test_production
   username: sopha-api-test
-  password: Rails.application.credentials.dig(:production, :db_password)
+  password: <%= ENV['SOPHA-API-TEST_DATABASE_PASSWORD'] %>

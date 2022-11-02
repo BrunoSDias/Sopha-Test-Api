@@ -6,9 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.3'
-
+gem 'devise_token_auth', '~> 1.2'
 gem 'pg', '~> 0.18'
-
 gem 'puma', '~> 3.7'
 
 group :development, :test do
@@ -18,6 +17,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano-rails', '~> 1.5', require: false
+  gem 'capistrano-rbenv', '~> 2.1'
+  gem 'capistrano-db-tasks', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop-rails', require: false
   gem 'spring'
@@ -31,4 +34,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'devise_token_auth', '~> 1.2'
+

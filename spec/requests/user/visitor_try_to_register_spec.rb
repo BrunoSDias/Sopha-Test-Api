@@ -5,13 +5,13 @@ describe 'User API' do
     it 'and got successfully' do
       post '/api/auth',
            params: {
-               email: 'testesopha@gmail.com',
-               password: '1234567'
+             email: 'testesopha@gmail.com',
+             password: '1234567'
            },
            headers: { 'Accept' => 'application/json' }
-
+           
       expect(response).to have_http_status(200)
-      expect(parsed_body[:data][:email]).to eq('testesopha@gmail.com')
+      expect(parsed_body[:data][:user][:email]).to eq('testesopha@gmail.com')
       expect(User.count).to eq(1)
       expect(User.last.email).to eq('testesopha@gmail.com')
     end
@@ -19,11 +19,11 @@ describe 'User API' do
     it 'and password is to short' do
       post '/api/auth',
            params: {
-               email: 'testesopha@gmail.com',
-               password: '1'
+             email: 'testesopha@gmail.com',
+             password: '1'
            },
            headers: { 'Accept' => 'application/json' }
-      
+
       expect(response).to have_http_status(422)
       expect(User.count).to eq(0)
       expect(parsed_body[:errors][:password][0]).to eq('is too short (minimum is 6 characters)')
@@ -34,8 +34,8 @@ describe 'User API' do
 
       post '/api/auth',
            params: {
-               email: user.email,
-               password: '1234567'
+             email: user.email,
+             password: '1234567'
            },
            headers: { 'Accept' => 'application/json' }
 
@@ -49,8 +49,8 @@ describe 'User API' do
 
       post '/api/auth',
            params: {
-               email: user.email,
-               password: '1'
+             email: user.email,
+             password: '1'
            },
            headers: { 'Accept' => 'application/json' }
 

@@ -9,6 +9,8 @@ gem 'rails', '~> 5.2'
 gem 'devise_token_auth', '~> 1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

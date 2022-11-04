@@ -10,7 +10,14 @@ module UserHelpers
         )
   end
 
-    def build_user
+  def build_user
+    FactoryBot.build(:user, 
+            email: Faker::Internet.email, 
+            password: Faker::Internet.password
+        )
+  end
+
+  def failure_user
     FactoryBot.build(:user, 
             email: Faker::Internet.email, 
             password: Faker::Internet.password

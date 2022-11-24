@@ -60,5 +60,3 @@ As seguintes requisições devem ser possíveis:
 
  - Funcionalidade
  - Boas práticas
-
-Teste de alteração

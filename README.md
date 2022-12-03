@@ -60,3 +60,33 @@ As seguintes requisições devem ser possíveis:
 
  - Funcionalidade
  - Boas práticas
+
+
+# Dados do desafio
+
+ ## na autenticação usei devise_token_auth
+
+- para testar: localhost:3000/auth
+rota '/auth'
+
+{
+    "name": "Lucemila Test",
+    "email": "test@test.com",
+    "password": "12345678",
+    "password_confirmation": "12345678"
+}
+
+- para login localhot:3000/auth/sign_in
+rota '/auth/sign_in'
+{
+    "email": "test@test.com",
+    "password": "12345678"
+}
+
+- após login, pegar o valor do access-token, uid e client do retorno do login
+e incluir no header do endpoint '/stores' para criar um store necessário 
+
+{
+    "name": "Loja Sopha",
+    "user_id": 4
+}

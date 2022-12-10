@@ -46,6 +46,9 @@ class StoresController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def store_params
-      params.require(:store).permit(:name, :user_id)
+      {
+        name: params[:name],
+        user_id: @current_user
+      }
     end
 end

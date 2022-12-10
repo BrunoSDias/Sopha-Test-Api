@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   resources :stores
-  post 'authenticate', to: 'authentication#authenticate'
+  post 'sign_in', to: 'authentication#authenticate'
+  post 'sign_up', to: 'authentication#registration'
 end

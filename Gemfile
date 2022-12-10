@@ -28,6 +28,9 @@ gem 'bcrypt', '~> 3.1.7'
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard. Read more: https://github.com/jwt/ruby-jwt
 gem 'jwt'
 
+# A simple, standardized way to build and use Service Objects (aka Commands) in Ruby. Read more: https://github.com/nebulab/simple_command
+gem 'simple_command'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

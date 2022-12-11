@@ -31,10 +31,10 @@ Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Au
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|
-| GET    | http://34.207.245.186:3000//sign_in | Login de Usuário           |
-| POST   | http://34.207.245.186:3000//sign_up | Cadastro de Usuário        |
-| GET    | http://34.207.245.186:3000//stores  | Adquirir Lojas             |
-| POST   | http://34.207.245.186:3000//stores  | Criar Loja                 |
-| GET    | http://34.207.245.186:3000//store   | Visualizar Loja Individual |
-| PUT    | http://34.207.245.186:3000//store   | Atualizar Loja Individual  |
-| DELETE | http://34.207.245.186:3000//store   | Deletar Loja Individual    |
+| GET    | http://34.207.245.186:3000/sign_in | Login de Usuário           |
+| POST   | http://34.207.245.186:3000/sign_up | Cadastro de Usuário        |
+| GET    | http://34.207.245.186:3000/stores  | Adquirir Lojas             |
+| POST   | http://34.207.245.186:3000/stores  | Criar Loja                 |
+| GET    | http://34.207.245.186:3000/store   | Visualizar Loja Individual |
+| PUT    | http://34.207.245.186:3000/store   | Atualizar Loja Individual  |
+| DELETE | http://34.207.245.186:3000/store   | Deletar Loja Individual    |

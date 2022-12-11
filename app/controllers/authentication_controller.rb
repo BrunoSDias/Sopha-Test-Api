@@ -2,7 +2,7 @@ class AuthenticationController < ApplicationController
   skip_before_action :authenticate_request
  
   def authenticate
-    command = AuthenticateUser.call(params[:email], params[:password])
+    command = AuthenticateUser.call(user_params)
 
     if command.success?
       render json: { auth_token: command.result }
@@ -24,11 +24,6 @@ class AuthenticationController < ApplicationController
   private
 
   def user_params
-    { 
-    name: params[:name],
-    email: params[:email],
-    password: params[:password],
-    password_confirmation: params[:password_confirmation]
-   }
+    params.require(:users).permit(:name, :email, :password, :password_confirmation)
   end
 end

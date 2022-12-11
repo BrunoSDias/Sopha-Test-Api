@@ -13,7 +13,7 @@ Ao fazer o login, o usuário recebe um Token como resposta, esse deve ser usado 
 
 # Autenticação via Token
 
-Deve ser enviada no Header.
+Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Authorization**.
 
 # Testes Locais
 

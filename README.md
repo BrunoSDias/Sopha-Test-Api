@@ -15,7 +15,7 @@ Ao fazer o login, o usuário recebe um Token como resposta, esse deve ser usado 
 
 Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Authorization**.
 
-# Testes Locais
+# Endpoints Locais
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|
@@ -27,7 +27,7 @@ Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Au
 | PUT    | localhost:3000/store   | Atualizar Loja Individual  |
 | DELETE | localhost:3000/store   | Deletar Loja Individual    |
 
-# Testes No AWS EC2
+# Endpoints No AWS EC2
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|

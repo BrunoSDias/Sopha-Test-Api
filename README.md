@@ -1,62 +1,28 @@
 
+# Introduction
 
-# Avaliação Sopha
-## Para iniciar
-Realize um **fork** desse repositório
-**clone** o projeto do fork
+Permite que possa ser feito cadastro de um usuário e que esse usuário (user) logado possa fazer CRUD em lojas (store).
 
-Execute o comando para provisionar a aplicação:
+# Parâmetros
 
-    $ docker-compose up --build
+Para cadastro login e afins, os parâmetros devem ser enviados via **Body**, com o **Header** indicando *Content-Type: application/json*.
 
-## Sobre
-O candidato deve fazer um **fork** deste repositório e realizar um **pull request** com o código do teste pronto antes do prazo de vencimento do desafio.
+# Login e Token
 
-## Objetivo
+Ao fazer o login, o usuário recebe um Token como resposta, esse deve ser usado para fazer a administração das lojas (stores).
 
-O candidato deve criar uma **API** responsável por gerenciar um catalogo de lojas (**Store**)  e hospedá-lo em uma instância **AWS EC2**.
+# Autenticação via Token
 
-## Estrutura
-Essa **API** deve ser constituída por:
+Deve ser enviada no Header.
 
- - Um Model **User** com os atributos **name, email e password**
- - Um Model **Store** com os atributos **name, user_id**
- -  Onde:
-	 - **Store** pertence à **User**
-	 
-## Funcionalidade
-As seguintes requisições devem ser possíveis:
+# Testes Locais
 
- - Processo de autenticação de um **User** (Signup, Signin)
-  - Requisições de **CRUD** (Create, Read, Update, Delete) para **Store**  (Estas requisições só devem ser possíveis se o usuário estiver autenticado)
-
-
-## Conhecimentos necessários
--  Ruby
--  Ruby on Rails
--  AWS EC2
--  Servidores HTTP
--  SQL
--  Postgres 
--   Git
-
-## Requisitos
-
--   Docker
-
-## O que esperamos da solução
- -  A aplicacão **DEVE** estar hospedada em uma instância **AWS EC2**
- -  Que todas as ações requisitadas funcionem.
- -  Que haja testes automatizados sobre essas ações (TDD).
- -  Que seja possível testar essas ações do ambiente local (Localhost) na **aplicação hospedada**.
- -  Instruções de uso no README.md
-	 - Como rodar os testes da aplicação
-	 - Quais os **endpoints** devo acessar para realizar as requisições esperadas na **aplicação hospedada**
-	 - Quais os **parâmetros** e/ou **cabeçalhos**  devo enviar para realizar cada uma das requisições esperadas na **aplicação hospedada**
- -  É **Opcional** utilizar **docker** na **aplicação hospedada**.
- - Uso de **gems** adicionais também é opcional
-
-## O que avaliaremos
-
- - Funcionalidade
- - Boas práticas
+| Verbo  | URL                    | Descrição                  |
+|--------|------------------------|----------------------------|
+| GET    | localhost:3000/sign_in | Login de Usuário           |
+| POST   | localhost:3000/sign_up | Cadastro de Usuário        |
+| GET    | localhost:3000/stores  | Adquirir Lojas             |
+| POST   | localhost:3000/stores  | Criar Loja                 |
+| GET    | localhost:3000/store   | Visualizar Loja Individual |
+| PUT    | localhost:3000/store   | Atualizar Loja Individual  |
+| DELETE | localhost:3000/store   | Deletar Loja Individual    |

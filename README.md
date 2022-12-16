@@ -26,22 +26,22 @@ Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Au
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|
-| POST    | localhost:3000/sign_in | Login de Usuário           |
-| POST   | localhost:3000/sign_up | Cadastro de Usuário        |
-| GET    | localhost:3000/stores  | Adquirir Lojas             |
-| POST   | localhost:3000/stores  | Criar Loja                 |
-| GET    | localhost:3000/stores/id   | Visualizar Loja Individual |
-| PUT    | localhost:3000/stores/id   | Atualizar Loja Individual  |
-| DELETE | localhost:3000/stores/id   | Deletar Loja Individual    |
+| POST    | localhost:3000/api/v1/sign_in | Login de Usuário           |
+| POST   | localhost:3000/api/v1/sign_up | Cadastro de Usuário        |
+| GET    | localhost:3000/api/v1/stores  | Adquirir Lojas             |
+| POST   | localhost:3000/api/v1/stores  | Criar Loja                 |
+| GET    | localhost:3000/api/v1/stores/id   | Visualizar Loja Individual |
+| PUT    | localhost:3000/api/v1/stores/id   | Atualizar Loja Individual  |
+| DELETE | localhost:3000/api/v1/stores/id   | Deletar Loja Individual    |
 
 # Endpoints No AWS EC2
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|
-| POST    | http://34.207.245.186:3000/sign_in | Login de Usuário           |
-| POST   | http://34.207.245.186:3000/sign_up | Cadastro de Usuário        |
-| GET    | http://34.207.245.186:3000/stores  | Adquirir Lojas             |
-| POST   | http://34.207.245.186:3000/stores  | Criar Loja                 |
-| GET    | http://34.207.245.186:3000/stores/id   | Visualizar Loja Individual |
-| PUT    | http://34.207.245.186:3000/stores/id   | Atualizar Loja Individual  |
-| DELETE | http://34.207.245.186:3000/stores/id   | Deletar Loja Individual    |
+| POST    | http://34.207.245.186:3000/api/v1/sign_in | Login de Usuário           |
+| POST   | http://34.207.245.186:3000/api/v1/sign_up | Cadastro de Usuário        |
+| GET    | http://34.207.245.186:3000/api/v1/stores  | Adquirir Lojas             |
+| POST   | http://34.207.245.186:3000/api/v1/stores  | Criar Loja                 |
+| GET    | http://34.207.245.186:3000/api/v1/stores/id   | Visualizar Loja Individual |
+| PUT    | http://34.207.245.186:3000/api/v1/stores/id   | Atualizar Loja Individual  |
+| DELETE | http://34.207.245.186:3000/api/v1/stores/id   | Deletar Loja Individual    |

@@ -1,3 +1,10 @@
+# Setup
+
+Ferramenta necessária: **Docker**
+
+Execute o comando: `docker compose build` para que as os containers sejam criados.
+
+Execute o comando: `docker compose up` para iniciar os containers.
 
 # Introduction
 
@@ -23,9 +30,9 @@ Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Au
 | POST   | localhost:3000/sign_up | Cadastro de Usuário        |
 | GET    | localhost:3000/stores  | Adquirir Lojas             |
 | POST   | localhost:3000/stores  | Criar Loja                 |
-| GET    | localhost:3000/store   | Visualizar Loja Individual |
-| PUT    | localhost:3000/store   | Atualizar Loja Individual  |
-| DELETE | localhost:3000/store   | Deletar Loja Individual    |
+| GET    | localhost:3000/stores/id   | Visualizar Loja Individual |
+| PUT    | localhost:3000/stores/id   | Atualizar Loja Individual  |
+| DELETE | localhost:3000/stores/id   | Deletar Loja Individual    |
 
 # Endpoints No AWS EC2
 
@@ -35,6 +42,6 @@ Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Au
 | POST   | http://34.207.245.186:3000/sign_up | Cadastro de Usuário        |
 | GET    | http://34.207.245.186:3000/stores  | Adquirir Lojas             |
 | POST   | http://34.207.245.186:3000/stores  | Criar Loja                 |
-| GET    | http://34.207.245.186:3000/store   | Visualizar Loja Individual |
-| PUT    | http://34.207.245.186:3000/store   | Atualizar Loja Individual  |
-| DELETE | http://34.207.245.186:3000/store   | Deletar Loja Individual    |
+| GET    | http://34.207.245.186:3000/stores/id   | Visualizar Loja Individual |
+| PUT    | http://34.207.245.186:3000/stores/id   | Atualizar Loja Individual  |
+| DELETE | http://34.207.245.186:3000/stores/id   | Deletar Loja Individual    |

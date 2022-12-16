@@ -50,7 +50,7 @@ class StoresController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def store_params
     result = params.require(:stores).permit(:name)
-    user = @current_user
+    user = { user_id: @current_user.id }
     result.merge user
   end
 end

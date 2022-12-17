@@ -2,9 +2,21 @@
 
 Ferramenta necessária: **Docker**
 
-Execute o comando: `docker compose build` para que as os containers sejam criados.
+Tenha um arquivo `.env.yaml` na raiz do projeto contendo os seguintes dados:
+```yml
+database: 123456789
+secret_key: 62b5eef3b057c5fcc312baad2e23ca6258f7450a06d6e35f71cb151a516d520688c38bcc007b96e94c6e463d51ed47316948e365088a45a0534ff21dce33855a
+```
 
-Execute o comando: `docker compose up` para iniciar os containers.
+Execute o comando: `docker compose up --build` para criar e inicializar os containers.
+
+Crie os bancos de dados Development,Test e Production com os comandos: 
+```
+docker container exec sopha-test-api-web-1 bash -c "RAILS_ENV=development rails db:create"
+docker container exec sopha-test-api-web-1 bash -c "RAILS_ENV=development rails db:migrate"
+docker container exec sopha-test-api-web-1 bash -c "rails db:create"
+docker container exec sopha-test-api-web-1 bash -c "rails db:schema:load"
+```
 
 # Introduction
 
@@ -42,10 +54,10 @@ Para rodar os testes locais, use o comando: `docker container exec sopha-test-ap
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|
-| POST    | http://34.207.245.186:3000/api/v1/sign_in | Login de Usuário           |
-| POST   | http://34.207.245.186:3000/api/v1/sign_up | Cadastro de Usuário        |
-| GET    | http://34.207.245.186:3000/api/v1/stores  | Adquirir Lojas             |
-| POST   | http://34.207.245.186:3000/api/v1/stores  | Criar Loja                 |
-| GET    | http://34.207.245.186:3000/api/v1/stores/id   | Visualizar Loja Individual |
-| PUT    | http://34.207.245.186:3000/api/v1/stores/id   | Atualizar Loja Individual  |
-| DELETE | http://34.207.245.186:3000/api/v1/stores/id   | Deletar Loja Individual    |
+| POST    | http://100.27.31.120:3000/api/v1/sign_in | Login de Usuário           |
+| POST   | http://100.27.31.120:3000/api/v1/sign_up | Cadastro de Usuário        |
+| GET    | http://100.27.31.120:3000/api/v1/stores  | Adquirir Lojas             |
+| POST   | http://100.27.31.120:3000/api/v1/stores  | Criar Loja                 |
+| GET    | http://100.27.31.120:3000/api/v1/stores/id   | Visualizar Loja Individual |
+| PUT    | http://100.27.31.120:3000/api/v1/stores/id   | Atualizar Loja Individual  |
+| DELETE | http://100.27.31.120:3000/api/v1/stores/id   | Deletar Loja Individual    |

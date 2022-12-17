@@ -42,10 +42,10 @@ Para rodar os testes locais, use o comando: `docker container exec sopha-test-ap
 
 | Verbo  | URL                    | Descrição                  |
 |--------|------------------------|----------------------------|
-| POST    | http://34.207.245.186:3000/api/v1/sign_in | Login de Usuário           |
-| POST   | http://34.207.245.186:3000/api/v1/sign_up | Cadastro de Usuário        |
-| GET    | http://34.207.245.186:3000/api/v1/stores  | Adquirir Lojas             |
-| POST   | http://34.207.245.186:3000/api/v1/stores  | Criar Loja                 |
-| GET    | http://34.207.245.186:3000/api/v1/stores/id   | Visualizar Loja Individual |
-| PUT    | http://34.207.245.186:3000/api/v1/stores/id   | Atualizar Loja Individual  |
-| DELETE | http://34.207.245.186:3000/api/v1/stores/id   | Deletar Loja Individual    |
+| POST    | http://100.27.31.120:3000/api/v1/sign_in | Login de Usuário           |
+| POST   | http://100.27.31.120:3000/api/v1/sign_up | Cadastro de Usuário        |
+| GET    | http://100.27.31.120:3000/api/v1/stores  | Adquirir Lojas             |
+| POST   | http://100.27.31.120:3000/api/v1/stores  | Criar Loja                 |
+| GET    | http://100.27.31.120:3000/api/v1/stores/id   | Visualizar Loja Individual |
+| PUT    | http://100.27.31.120:3000/api/v1/stores/id   | Atualizar Loja Individual  |
+| DELETE | http://100.27.31.120:3000/api/v1/stores/id   | Deletar Loja Individual    |

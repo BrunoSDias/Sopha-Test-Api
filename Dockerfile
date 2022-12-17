@@ -8,8 +8,6 @@ ENV RAILS_LOG_TO_STDOUT true
 
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
-
-RUN bundle config set without 'development test'
 RUN bundle install
 
 COPY entrypoint.sh /usr/bin

@@ -1,3 +1,8 @@
+
+# Introdução
+
+Permite que possa ser feito cadastro de um usuário e que esse usuário (user) logado possa fazer CRUD em lojas (store).
+
 # Setup
 
 Ferramenta necessária: **Docker**
@@ -10,7 +15,7 @@ secret_key: 62b5eef3b057c5fcc312baad2e23ca6258f7450a06d6e35f71cb151a516d520688c3
 
 Execute o comando: `docker compose up --build` para criar e inicializar os containers.
 
-# Crie o usuário de produção no banco de dados:
+## Crie o usuário de produção no banco de dados:
 
 Use o comando abaixo para ter controle do container com o Postgres
 `docker exec -it sopha-test-api-db-1 bash`
@@ -36,10 +41,6 @@ docker container exec sopha-test-api-web-1 bash -c "RAILS_ENV=development rails 
 docker container exec sopha-test-api-web-1 bash -c "rails db:create"
 docker container exec sopha-test-api-web-1 bash -c "rails db:schema:load"
 ```
-
-# Introduction
-
-Permite que possa ser feito cadastro de um usuário e que esse usuário (user) logado possa fazer CRUD em lojas (store).
 
 # Parâmetros
 

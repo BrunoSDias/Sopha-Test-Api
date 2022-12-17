@@ -2,9 +2,21 @@
 
 Ferramenta necessária: **Docker**
 
-Execute o comando: `docker compose build` para que as os containers sejam criados.
+Tenha um arquivo `.env.yaml` na raiz do projeto contendo os seguintes dados:
+```yml
+database: 123456789
+secret_key: 62b5eef3b057c5fcc312baad2e23ca6258f7450a06d6e35f71cb151a516d520688c38bcc007b96e94c6e463d51ed47316948e365088a45a0534ff21dce33855a
+```
 
-Execute o comando: `docker compose up` para iniciar os containers.
+Execute o comando: `docker compose up --build` para criar e inicializar os containers.
+
+Crie os bancos de dados Development,Test e Production com os comandos: 
+```
+docker container exec sopha-test-api-web-1 bash -c "RAILS_ENV=development rails db:create"
+docker container exec sopha-test-api-web-1 bash -c "RAILS_ENV=development rails db:migrate"
+docker container exec sopha-test-api-web-1 bash -c "rails db:create"
+docker container exec sopha-test-api-web-1 bash -c "rails db:schema:load"
+```
 
 # Introduction
 

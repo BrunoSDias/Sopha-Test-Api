@@ -22,6 +22,10 @@ Ao fazer o login, o usuário recebe um Token como resposta, esse deve ser usado 
 
 Deve ser enviada no **Header** do tipo **API Key**, com a chave com nome de **Authorization**.
 
+# Testes
+
+Para rodar os testes locais, use o comando: `docker container exec sopha-test-api-web-1 rails test`.
+
 # Endpoints Locais
 
 | Verbo  | URL                    | Descrição                  |

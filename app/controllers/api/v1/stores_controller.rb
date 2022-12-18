@@ -1,5 +1,7 @@
-class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :update, :destroy]
+# frozen_string_literal: true
+
+class Api::V1::StoresController < Api::V1::ApplicationController
+  before_action :set_store, only: %i[show update destroy]
 
   # GET /stores
   def index
@@ -18,7 +20,7 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
 
     if @store.save
-      render json: @store, status: :created, location: @store
+      render json: @store, status: :created
     else
       render json: @store.errors, status: :unprocessable_entity
     end
@@ -39,15 +41,16 @@ class StoresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_store
-      @store = Store.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def store_params
-      result = params.require(:stores).permit(:name)
-      user = @current_user
-      result.merge user
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_store
+    @store = Store.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def store_params
+    result = params.require(:stores).permit(:name)
+    user = { user_id: @current_user.id }
+    result.merge user
+  end
 end

@@ -1,6 +1,8 @@
-class ApplicationController < ActionController::API
+# frozen_string_literal: true
+
+class Api::V1::ApplicationController < ActionController::API
   before_action :authenticate_request
-    attr_reader :current_user
+  attr_reader :current_user
 
   private
 

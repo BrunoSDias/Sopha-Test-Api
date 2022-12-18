@@ -1,6 +1,8 @@
-class AuthenticationController < ApplicationController
+# frozen_string_literal: true
+
+class Api::V1::AuthenticationController < Api::V1::ApplicationController
   skip_before_action :authenticate_request
- 
+
   def authenticate
     command = AuthenticateUser.call(user_params)
 
@@ -19,8 +21,8 @@ class AuthenticationController < ApplicationController
     else
       render json: @user.errors, status: :unprocessable_entity
     end
-  end  
-  
+  end
+
   private
 
   def user_params

@@ -10,3 +10,6 @@ debug:
 
 build:
 	sudo docker-compose build
+
+database:
+	sudo docker exec -it sopha-test-api_db_1 /bin/bash

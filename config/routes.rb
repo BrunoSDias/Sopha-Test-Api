@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :stores
-  resources :users
+  namespace :api, defaults: { format: :json } do
+    resources :stores
+    resources :users
+  end
 end

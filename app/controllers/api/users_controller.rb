@@ -3,7 +3,7 @@ module Api
     before_action :set_user, only: [:show, :update, :destroy]
 
     def index
-      @users = User.all.order_user_by_name
+      @users = User.search_user(params[:user]).order_user_by_name
 
       render json: @users
     end
@@ -16,7 +16,7 @@ module Api
       @user = User.new(user_params)
 
       if @user.save
-        render json: @user, status: :created, location: @user
+        render json: @user, status: :created, location: api_user_url(@user)
       else
         render json: @user.errors, status: :unprocessable_entity
       end

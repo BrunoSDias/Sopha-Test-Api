@@ -3,7 +3,7 @@ module Api
     before_action :set_store, only: [:show, :update, :destroy]
 
     def index
-      @stores = Store.all.order_store_by_name
+      @stores = Store.search_store(params[:name]).order_store_by_name
 
       render json: @stores
     end
@@ -16,7 +16,7 @@ module Api
       @store = Store.new(store_params)
 
       if @store.save
-        render json: @store, status: :created, location: @store
+        render json: @store, status: :created, location: api_store_url(@store)
       else
         render json: @store.errors, status: :unprocessable_entity
       end

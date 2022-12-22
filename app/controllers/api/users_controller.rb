@@ -1,8 +1,5 @@
 module Api
   class UsersController < ApplicationController
-    include Authenticable
-
-    before_action :authenticable_with_token
     before_action :set_user, only: [:show, :update, :destroy]
 
     def index

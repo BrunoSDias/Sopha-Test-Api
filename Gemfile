@@ -23,9 +23,12 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "faker", "~> 3.0"
+  gem "letter_opener", "~> 1.8"
 end
 
 group :test do
   gem "shoulda-matchers", "~> 4.5"
   gem "simplecov", "~> 0.21.2", require: false
 end
+
+gem "devise_token_auth", "~> 1.2"

@@ -13,6 +13,7 @@ gem "active_model_serializers", "~> 0.10.13"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails", "~> 4.1"
 end
 
 group :development do
@@ -20,4 +21,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "faker", "~> 3.0"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 4.5"
+  gem "simplecov", "~> 0.21.2", require: false
 end

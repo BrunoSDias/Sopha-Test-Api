@@ -3,7 +3,7 @@ module Api
     before_action :set_store, only: [:show, :update, :destroy]
 
     def index
-      @stores = Store.search_store(params[:name]).order_store_by_name
+      @stores = Store.search_store(params[:title]).order_store_by_name
 
       render json: @stores
     end

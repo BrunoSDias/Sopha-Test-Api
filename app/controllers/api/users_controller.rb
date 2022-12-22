@@ -6,7 +6,7 @@ module Api
     before_action :set_user, only: [:show, :update, :destroy]
 
     def index
-      @users = User.search_user(params[:user]).order_user_by_name
+      @users = User.search_user(params[:user_name]).order_user_by_name
 
       render json: @users
     end

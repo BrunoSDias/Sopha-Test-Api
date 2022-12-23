@@ -11,7 +11,6 @@ gem 'puma', '~> 3.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "active_model_serializers", "~> 0.10.13"
 gem 'rubocop', require: false
-gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

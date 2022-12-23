@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-    validates :user_id, presence: true
+    validates :name, :user_id, presence: true
     belongs_to :user
 
     scope :search_store, -> (title) { where("LOWER(name) LIKE ?", "%#{title.downcase}%") if title.present? }

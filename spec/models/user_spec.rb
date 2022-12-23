@@ -1,37 +1,59 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-    subject { User.new(name: 'Kanamy', email: 'kanamystewart@gmail.com', password: '123456') }
-
-    describe 'validations' do
-        context 'valida de o nome está presente' do
-            it { should validate_presence_of(:name) }
-        end
-
-        context 'valida se o email está presente' do
-            it { should validate_presence_of(:email) }
-        end
-
-        context 'valida se o password está presente' do
-            it { should validate_presence_of(:password) }
-        end
-
-        context 'valida se o email é unico cadastrado' do
-            it { should validate_uniqueness_of(:email) }
-        end
-    end
-
     describe 'scopes' do
-        context 'verifica se tem algum usuário com o nome vindo por params' do
-            it '.search_user' do
-                user = User.create(name: 'Kanamy', email: 'kanamystewart@gmail.com', password:  '123456')
-                expect(User.search_user('Kan')).to include(user)
+        describe 'search_user' do
+            it 'retorna usuário com nome igual ao parâmetro' do
+                user = create :user
+                expect(User.search_user(user.name).count).to eq(1)
+            end
+
+            it 'retorna usuário com nome semelhante ao parâmetro' do
+                user = create :user
+                expect(User.search_user(user.name[0..2]).count).to eq(1)
+            end
+
+            it 'retorna usuário com nome diferente do parâmetro' do
+                user = create :user
+                expect(User.search_user('nome').count).to eq(0)
+            end
+
+            it 'retorna todos os usuários' do
+                user = create :user
+                expect(User.search_user('').count).to eq(1)
             end
         end
 
-        context 'verifica se o usuário está sendo ordenado por nome' do
-            it '.order_user_by_name' do
-                expect(User.order(:name).to_sql).to eq User.order_user_by_name.to_sql
+        describe 'order_user_by_name' do
+            it 'retorna usuários ordenados por nome' do
+                user1 = User.create name: "Alberto", email: Faker::Internet.email, password: "123456", password_confirmation: "123456"
+                user2 = User.create name: "Walter", email: Faker::Internet.email, password: "123456", password_confirmation: "123456"
+                expect(User.order_user_by_name.first).to eq(user1)
+            end
+        end
+    end
+
+    describe 'associations' do
+        it { should have_many(:stores).dependent(:destroy) }
+    end
+
+    describe 'validations' do
+        it { should validate_presence_of(:email) }
+        it { should validate_presence_of(:password) }
+    end
+
+    describe 'callbacks' do
+        context 'before_validation' do
+            it 'seta UID igual ao email do usuário' do
+                user = User.new attributes_for :user_without_uid
+                expect(user.uid).to eq('')
+                user.save
+                expect(user.uid).to eq(user.email)
+            end
+
+            it 'seta provider igual a email' do
+                user = User.new attributes_for :user
+                expect(user.provider).to eq('email')
             end
         end
     end

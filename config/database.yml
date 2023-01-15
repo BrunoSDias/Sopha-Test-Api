@@ -16,3 +16,5 @@ production:
   database: sopha-api-test_production
   username: sopha-api-test
   password: <%= ENV['SOPHA-API-TEST_DATABASE_PASSWORD'] %>
+  host: <%= ENV['SOPHA-API-TEST_DATABASE_HOST'] %>
+  port: <%= ENV['SOPHA-API-TEST_DATABASE_PORT'] %>

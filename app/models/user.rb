@@ -1,13 +1,22 @@
+# frozen_string_literal: true
 
-class User < ApplicationRecord
-   # Associações
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :validatable
+
+  include DeviseTokenAuth::Concerns::User
+
+  # Associações
   has_many :stores
 
   # Validações
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password_digest, presence: true
-
   # Bcrypt
-  has_secure_password
+  #has_secure_password
 end

@@ -10,10 +10,10 @@ RSpec.configure do |config|
         title: 'API V1',
         version: 'v1'
       },
-      sescurityDefinitions: {
+      securityDefinitions: {
         Bearer: {
           type: :apiKey,
-          name: 'Authorization',
+          name: 'Access-Token',
           in: :header
         }
       },

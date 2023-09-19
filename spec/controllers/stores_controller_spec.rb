@@ -102,6 +102,21 @@ RSpec.describe StoresController, type: :request do
         expect(user.stores.count).to eq(1)
       end
     end
+
+    context 'when the user is authenticated but store name is nil' do
+      subject(:create_request) do
+        post '/stores/', params: store_params, headers: get_headers(user)
+      end
+
+      let(:user) { create(:user) }
+      let(:store_params) { { store: { name: '' } } }
+
+      before { create_request }
+
+      it 'returns status 422' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
   end
 
   describe 'DELETE #destroy' do

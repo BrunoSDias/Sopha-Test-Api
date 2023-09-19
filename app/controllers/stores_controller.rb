@@ -8,11 +8,13 @@ class StoresController < ApplicationController
   end
 
   def create
-    store = current_user.stores.build(store_params)
-    if store.save
-      render json: store, status: :created
+    service = StoreCreateService.new(current_user, store_params)
+    result = service.create
+
+    if result[:success]
+      render json: result[:store], status: :created
     else
-      render json: { error: formatted_error_messages(store) }, status: :unprocessable_entity
+      render json: { error: result[:error] }, status: :unprocessable_entity
     end
   end
 
@@ -21,7 +23,11 @@ class StoresController < ApplicationController
   end
 
   def update
-    if @store.update(store_params)
+    return invalid_store_message if store_params[:name].nil? || store_params[:name].empty?
+
+    service = StoreUpdateService.new(@store, store_params)
+
+    if service.update
       render json: @store, status: :ok
     else
       render json: { error: formatted_error_messages(@store) }, status: :unprocessable_entity
@@ -57,5 +63,8 @@ class StoresController < ApplicationController
 
   def store_not_found_message
     render json: { message: 'The store is not found' }, status: :unprocessable_entity
+  end
+  def invalid_store_message
+    render json: { message: 'Name cant\'t be blank' }, status: :unprocessable_entity
   end
 end

@@ -14,15 +14,19 @@ gem 'puma', '~> 3.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 4.2'
 gem 'devise_token_auth', '~> 1.2'
+gem 'rswag-api'
+gem 'rswag-ui'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry', '~> 0.13.1'
   gem 'factory_bot_rails'
+  gem 'pry', '~> 0.13.1'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'shoulda-matchers', '~> 4.0'
   gem 'faker'
+  gem 'shoulda-matchers', '~> 4.0'
+  gem 'rswag-specs'
 end
 
 group :development do

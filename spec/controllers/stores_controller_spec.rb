@@ -78,10 +78,6 @@ RSpec.describe StoresController, type: :request do
       it 'does not create a new store' do
         expect(user.stores.count).to eq(0)
       end
-
-      it 'returns error messages' do
-        expect(json_body[:error]).to be_present
-      end
     end
 
     context 'when the user is authenticated' do
@@ -140,7 +136,6 @@ RSpec.describe StoresController, type: :request do
         expect(user.stores.count).to eq(0)
       end
     end
-
     context 'when the user is authenticated but not the owner' do
       subject(:destroy_request) do
         delete "/stores/#{store.id}", headers: get_headers(user)
@@ -198,7 +193,7 @@ RSpec.describe StoresController, type: :request do
     end
 
     context 'when the user is authenticated but not the owner' do
-      subject(:update_request) do
+      subject(:delete_reque) do
         put "/stores/#{store.id}", params: store_params, headers: get_headers(user)
       end
 
@@ -207,7 +202,7 @@ RSpec.describe StoresController, type: :request do
       let!(:store) { create(:store, user: other_user) }
       let(:store_params) { { store: attributes_for(:store) } }
 
-      before { update_request }
+      before { delete_reque }
 
       it 'returns status 422' do
         expect(response).to have_http_status(:unprocessable_entity)

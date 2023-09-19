@@ -8,7 +8,7 @@ Store.delete_all
   user = User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.unique.email,
-    password: 'password123',  # Use 'password' em vez de 'encrypted_password'
+    password: 'password123', # Use 'password' em vez de 'encrypted_password'
     password_confirmation: 'password123'
   )
 

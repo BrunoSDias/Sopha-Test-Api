@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   # Validações
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
   # Bcrypt
   #has_secure_password
 end

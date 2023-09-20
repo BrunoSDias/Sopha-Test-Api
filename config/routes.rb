@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  namespace :api do
-    resources :users
-    resources :stores  
-    post 'auth/login', to: 'users#authenticate'
+  resources :users, only: [:create, :index] do
+    resources :stores, only: [:index, :show, :create, :update, :destroy]
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-
+  post 'users/signup', to: 'users#signup'
+  post 'users/signin', to: 'users#signin'
 end

@@ -1,9 +1,9 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  test "should not save user without email and password" do
+  test "should not save user without name, email, and password" do
     user = User.new
-    assert_not user.save, "Saved user without email and password"
+    assert_not user.valid?, "User is valid without name, email, and password"
   end
 
   test "should save user with valid data" do

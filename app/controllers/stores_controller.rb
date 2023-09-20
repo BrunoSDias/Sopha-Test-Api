@@ -1,6 +1,5 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :update, :destroy]
-  before_action :authenticate_user, only: [:create, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @stores = Store.all
@@ -8,38 +7,43 @@ class StoresController < ApplicationController
   end
 
   def show
+    @store = Store.find(params[:id])
     render json: @store
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Store not found' }, status: :not_found
   end
 
   def create
-    @store = Store.new(store_params)
-
+    @store = current_user.stores.new(store_params)
     if @store.save
-      render json: @store, status: :created, location: @store
+      render json: @store, status: :created
     else
-      render json: @store.errors, status: :unprocessable_entity
+      render json: { errors: @store.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def update
+    @store = current_user.stores.find(params[:id])
     if @store.update(store_params)
       render json: @store
     else
-      render json: @store.errors, status: :unprocessable_entity
+      render json: { errors: @store.errors.full_messages }, status: :unprocessable_entity
     end
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Store not found' }, status: :not_found
   end
 
   def destroy
+    @store = current_user.stores.find(params[:id])
     @store.destroy
+    render json: { message: 'Store deleted' }, status: :ok
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: 'Store not found' }, status: :not_found
   end
 
   private
 
-  def set_store
-    @store = Store.find(params[:id])
-  end
-
   def store_params
-    params.require(:store).permit(:name, :user_id)
+    params.require(:store).permit(:name, :address)
   end
 end

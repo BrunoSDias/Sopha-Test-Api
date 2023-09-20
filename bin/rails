@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby.exe
+
+ENV["RAILS_ENV"] ||= "development" 
+ENV["RAILS_ENV"] = "test" if ARGV[0] == "test" 
+
 begin
     load File.expand_path('../spring', __FILE__)
 rescue LoadError => e

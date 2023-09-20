@@ -1,7 +1,7 @@
 ## Objetivo
 Criar uma API responsável por gerenciar um catálogo de lojas (Store) e hospedá-lo em uma instância AWS EC2.
 
-### Estrutura
+## Estrutura
 Essa API deve ter:
 Um Model User com os atributos name, email e password;
 Um Model Store com os atributos name, user_id;
@@ -12,14 +12,14 @@ As seguintes requisições devem ser possíveis:
 Processo de autenticação de um User (Signup, Signin); JWT (JSON Web Token)
 Requisições de CRUD (Create, Read, Update, Delete) para Store (Essas requisições só devem ser possíveis se o usuário estiver autenticado);
 
-### Setup
+## Setup
 - Ruby v3.2.2;
 - Ruby on Rails v7.0.8;
 - PostgreSQL v12.16;
 - Docker;
 - AWS EC2;
 
-### Ambiente
+## Ambiente
 1. Configurando:
 
 Iniciando:
@@ -44,7 +44,7 @@ docker-compose up --build
 rails db:create db:migrate
 ```
 
-### Projeto rodando localmente
+## Projeto rodando localmente
 1. Start Rails:
 
 ```bash
@@ -53,11 +53,11 @@ rails server
 
 Padrão local -> `http://localhost:3000/`
 
-### AWS EC2 - Amazon Elastic Beanstalk
+## AWS EC2 - Amazon Elastic Beanstalk
 Disponível em:
 [http://](http://)
 
-### Testes nativos em Rails
+## Testes nativos em Rails
 obs.: testes de unidade para os modelos, testes funcionais para os controladores e testes de integração para verificar o comportamento geral das rotas e funcionalidades. Os testes de unidade podem ser criados na pasta test/models, os testes funcionais na pasta test/controllers e os testes de integração na pasta test/system.
 
 1. Teste geral:
@@ -69,7 +69,7 @@ obs.: testes de unidade para os modelos, testes funcionais para os controladores
     $ rails test:system
     ```
 
-### Endpoints
+## Endpoints
 Lojas:
 POST /users/:id_user/stores -- Cria uma nova loja associada a um usuário.
 GET /users/:id_user/stores -- Lista as lojas pertencentes a um usuário específico.

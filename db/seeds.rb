@@ -1,19 +1,7 @@
-require 'faker'
+User.destroy_all
+Store.destroy_all
 
 5.times do
-  User.create(
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password: 'johnversionpassword'
-  )
-end
-
-users = User.all
-users.each do |user|
-  3.times do
-    Store.create(
-      name: "Loja de #{user.name}",
-      user: user
-    )
-  end
+    User.create name: Faker::Artist.name, email: Faker::Internet.email, password: "johnversionx1", password_confirmation: "johnversionx1"
+    Store.create name: "Store for #{User.last.name}", user_id: User.last.id
 end

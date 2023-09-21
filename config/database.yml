@@ -1,20 +1,21 @@
 default: &default
   adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>
   port: <%= ENV['DATABASE_PORT'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: sophatestapi_development
-
+  database: sopha-api-test_development
 test:
   <<: *default
-  database: sophatestapi_test
-
+  database: sopha-api-test_test
 production:
   <<: *default
-  database: sophatestapi_production
+  database: sopha-api-test_production
+  username: sopha-api-test
+  password: <%= ENV['SOPHA-API-TEST_DATABASE_PASSWORD'] %>
+  host: <%= ENV['SOPHA-API-TEST_DATABASE_HOST'] %>
+  port: <%= ENV['SOPHA-API-TEST_DATABASE_PORT'] %>

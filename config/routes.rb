@@ -1,8 +1,12 @@
-Rails.application.routes.draw do
-  resources :users, only: [:create, :index] do
-    resources :stores, only: [:index, :show, :create, :update, :destroy]
-  end
+require 'api_constraints'
 
-  post 'users/signup', to: 'users#signup'
-  post 'users/signin', to: 'users#signin'
+Rails.application.routes.draw do
+  namespace :api, defaults: { format: :json } do
+    mount_devise_token_auth_for 'User', at: 'auth'
+
+    scope module: :v1,
+    constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :stores
+    end
+  end
 end

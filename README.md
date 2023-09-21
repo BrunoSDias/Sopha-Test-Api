@@ -14,7 +14,7 @@ As seguintes requisições devem ser possíveis:
 - Ruby v2.7.1;
 - Ruby on Rails v5.1.3;
 - PostgreSQL;
-- Docker (Opcional);
+- Docker (Ocasional);
 - AWS EC2;
 
 ## Ambiente
@@ -25,12 +25,17 @@ Clone o repositório ou realize um fork;
 
 Inicie o ambiente do framework Ruby on Rails conforme o padrão. Documentação `https://rubyonrails.org`
 
-Posteriormente:
+Ambiente do projeto:
 ```bash
 bundle install
 ```
 
-2. Docker (Opcional):
+Gerenciador de pacotes (Ocasional):
+```bash
+yarn install
+```
+
+2. Docker (Ocasional) `https://docs.docker.com/`:
 
 ```bash
 docker-compose up --build
@@ -51,9 +56,11 @@ rails server
 
 Padrão local -> `http://localhost:3000/api/`
 
-## AWS EC2 - Amazon Elastic Beanstalk
+## AWS EC2
+Instrução em: `assets/AWS_EC2_RAILS-README.md`
+
 Disponível em:
-[API](http://)
+`https://ec2-35-89-204-246.us-west-2.compute.amazonaws.com:3000/`
 
 ## Testes RSpec
 obs.: Test-Driven Development (TDD): O RSpec é uma ferramenta útil para seguir a prática do TDD, onde você escreve testes antes de implementar o código de produção. Isso ajuda a garantir que seu código seja testado automaticamente e atenda aos requisitos esperados. O RSpec é facilmente integrado com Ruby on Rails e fornece suporte para testar controladores, modelos, visualizações e funcionalidades de roteamento, entre outros.

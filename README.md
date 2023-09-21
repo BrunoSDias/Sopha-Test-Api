@@ -70,6 +70,10 @@ obs.: Test-Driven Development (TDD): O RSpec é uma ferramenta útil para seguir
     ```
     rspec --format documentation
     ```
+4. Caso tenha migrações pendentes na aplicação Rails (Opcional):
+    ```
+    bin/rails db:migrate RAILS_ENV=test
+    ```
 
 ## Endpoints
 ```

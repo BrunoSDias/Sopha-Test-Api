@@ -23,7 +23,7 @@ RSpec.describe 'Passwords', type: :request do
       user.reload
       expect(user.valid_password?('newpassword')).to be_truthy
       expect(response).to have_http_status(:ok)
-      expect(response.content_type).to eq('application/json; charset=utf-8')
+      expect(response.content_type).to eq('application/json')
     end
   end
 end

@@ -22,7 +22,7 @@ RSpec.describe 'Registrations', type: :request do
       user.reload
       expect(user.name).to eq(new_name)
       expect(response).to have_http_status(:ok)
-      expect(response.content_type).to eq('application/json; charset=utf-8')
+      expect(response.content_type).to eq('application/json')
     end
   end
 

@@ -1,7 +1,7 @@
 # Deploy Ruby on Rails em uma instância AWS EC2
 ```sh
 # Ambiente
-# Instale e configure o ambiente WSL (Windows Subsystem for Linux) na sua máquina, além do Docker caso esteja no Windows.
+# Instale e configure o ambiente WSL (Windows Subsystem for Linux) na sua máquina, caso esteja no Windows.
 # Vamos seguir por um terminal via Linux.
 # link AWS -> https://aws.amazon.com/ec2/
 ```

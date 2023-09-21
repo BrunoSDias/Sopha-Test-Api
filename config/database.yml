@@ -1,9 +1,9 @@
 default: &default
   adapter: postgresql
-  host: <%= ENV['DATABASE_HOST'] %>
+  host: db
   port: <%= ENV['DATABASE_PORT'] %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: postgres
+  password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:

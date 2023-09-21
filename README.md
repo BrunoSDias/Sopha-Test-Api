@@ -6,6 +6,7 @@ Essa API deve ter:
 - Um Model User com os atributos name, email e password;
 - Um Model Store com os atributos name, user_id;
 - Store ligado ao User;
+
 As seguintes requisições devem ser possíveis:
 - Processo de autenticação de um User (Signup, Signin). Autenticação Devise Token Auth;
 - Requisições de CRUD (Create, Read, Update, Delete) para Store (Essas requisições só devem ser possíveis se o usuário estiver autenticado);
@@ -58,6 +59,7 @@ Padrão local -> `http://localhost:3000/api/`
 
 ## AWS EC2
 Instrução em: `assets/AWS_EC2_RAILS-README.md`
+
 Painel como panorama .png em: `assets/aws-ec2-screen.png`
 
 Link instância:

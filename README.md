@@ -58,8 +58,9 @@ Padrão local -> `http://localhost:3000/api/`
 
 ## AWS EC2
 Instrução em: `assets/AWS_EC2_RAILS-README.md`
+Painel como panorama .png em: `assets/aws-ec2-screen.png`
 
-Disponível em:
+Link instância:
 `https://ec2-35-89-204-246.us-west-2.compute.amazonaws.com:3000/`
 
 ## Testes RSpec

@@ -1,6 +1,15 @@
 ## Objetivo
 Criar uma API responsável por gerenciar um catálogo de lojas (Store) e hospedá-lo em uma instância AWS EC2.
 
+## Estrutura
+Essa API deve ter:
+- Um Model User com os atributos name, email e password;
+- Um Model Store com os atributos name, user_id;
+- Store ligado ao User;
+As seguintes requisições devem ser possíveis:
+- Processo de autenticação de um User (Signup, Signin). Autenticação Devise Token Auth;
+- Requisições de CRUD (Create, Read, Update, Delete) para Store (Essas requisições só devem ser possíveis se o usuário estiver autenticado);
+
 ## Setup
 - Ruby v2.7.1;
 - Ruby on Rails v5.1.3;

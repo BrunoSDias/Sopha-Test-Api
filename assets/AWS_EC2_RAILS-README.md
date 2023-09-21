@@ -1,8 +1,9 @@
 # Deploy Ruby on Rails em uma instância AWS EC2
 ```sh
 # Ambiente
-# Instale e configure o ambiente WSL (Windows Subsystem for Linux) na sua máquina, além do Docker caso esteja no Windows. Vamos seguir por um terminal via Linux.
-#link AWS -> https://aws.amazon.com/ec2/
+# Instale e configure o ambiente WSL (Windows Subsystem for Linux) na sua máquina, além do Docker caso esteja no Windows.
+# Vamos seguir por um terminal via Linux.
+# link AWS -> https://aws.amazon.com/ec2/
 ```
 
 ```sh
@@ -23,7 +24,8 @@ sudo apt upgrade
 
 # Verificando biblioteca para instalar o ruby
 sudo apt install gcc make libssl-dev libreadline-dev zlib1g-dev libpq-dev build-essential -y
-#sudo apt install gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev <- sqlite3
+#sudo apt-get install libyaml-dev #caso necessário
+#sudo apt install gcc make libssl-dev libreadline-dev zlib1g-dev libsqlite3-dev #sqlite3
 sudo apt-get install build-essential # Compilar Sass
 ```
 

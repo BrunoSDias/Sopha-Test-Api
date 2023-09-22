@@ -1,6 +1,7 @@
 default: &default
   adapter: postgresql
   host: db
+  port: <%= ENV['DATABASE_PORT'] %>
   username: postgres
   password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -16,3 +17,5 @@ production:
   database: sopha-api-test_production
   username: sopha-api-test
   password: <%= ENV['SOPHA-API-TEST_DATABASE_PASSWORD'] %>
+  host: <%= ENV['SOPHA-API-TEST_DATABASE_HOST'] %>
+  port: <%= ENV['SOPHA-API-TEST_DATABASE_PORT'] %>

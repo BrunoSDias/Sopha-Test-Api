@@ -1,62 +1,77 @@
-
-
 # Avaliação Sopha
-## Para iniciar
-Realize um **fork** desse repositório
-**clone** o projeto do fork
 
-Execute o comando para provisionar a aplicação:
+## Para utilizar a aplicação online
 
-    $ docker-compose up --build
+Para testar esta API de forma prática, você pode utilizar o **Insomnia** ou o **Postman**.
 
-## Sobre
-O candidato deve fazer um **fork** deste repositório e realizar um **pull request** com o código do teste pronto antes do prazo de vencimento do desafio.
+### Links para instalação do Postman ou Insomnia
 
-## Objetivo
+- [Insomnia](https://insomnia.rest/)
+- [Postman](https://www.postman.com/)
 
-O candidato deve criar uma **API** responsável por gerenciar um catalogo de lojas (**Store**)  e hospedá-lo em uma instância **AWS EC2**.
+## URL da aplicação
 
-## Estrutura
-Essa **API** deve ser constituída por:
+Acesse a nossa aplicação através do seguinte link:
 
- - Um Model **User** com os atributos **name, email e password**
- - Um Model **Store** com os atributos **name, user_id**
- -  Onde:
-	 - **Store** pertence à **User**
-	 
-## Funcionalidade
-As seguintes requisições devem ser possíveis:
+[http://15.229.45.131/](http://15.229.45.131/) 
 
- - Processo de autenticação de um **User** (Signup, Signin)
-  - Requisições de **CRUD** (Create, Read, Update, Delete) para **Store**  (Estas requisições só devem ser possíveis se o usuário estiver autenticado)
+## Endpoints para o Auth e Store
 
+Estruturamos uma documentação para todos os endpoints de autenticação e recursos Store, que está disponível [aqui](https://colorful-lupin-82f.notion.site/Sopha-api-f35a6f5d3a724d60b0a974bd3ec54fbb).
 
-## Conhecimentos necessários
--  Ruby
--  Ruby on Rails
--  AWS EC2
--  Servidores HTTP
--  SQL
--  Postgres 
--   Git
+### Registro de Usuário (Sign Up)
 
-## Requisitos
+Para criar uma conta, faça um POST para `http://15.229.45.131/api/auth` com o seguinte exemplo de corpo da requisição: (conforme tem na documentação)
 
--   Docker
+```json
+{
+  "email": "jv@gmail.com",
+  "password": "password_user",
+  "password_confirmation": "password_user",
+  "name": "joao"
+}
+```
 
-## O que esperamos da solução
- -  A aplicacão **DEVE** estar hospedada em uma instância **AWS EC2**
- -  Que todas as ações requisitadas funcionem.
- -  Que haja testes automatizados sobre essas ações (TDD).
- -  Que seja possível testar essas ações do ambiente local (Localhost) na **aplicação hospedada**.
- -  Instruções de uso no README.md
-	 - Como rodar os testes da aplicação
-	 - Quais os **endpoints** devo acessar para realizar as requisições esperadas na **aplicação hospedada**
-	 - Quais os **parâmetros** e/ou **cabeçalhos**  devo enviar para realizar cada uma das requisições esperadas na **aplicação hospedada**
- -  É **Opcional** utilizar **docker** na **aplicação hospedada**.
- - Uso de **gems** adicionais também é opcional
+### Login
 
-## O que avaliaremos
+Após criar sua conta, siga o processo de autenticação realizando um POST em:
+[http://15.229.45.131/api/auth/sign_in](http://15.229.45.131/api/auth/sign_in)
 
- - Funcionalidade
- - Boas práticas
+Forneça seu email e senha. Após a autenticação bem-sucedida, você poderá obter as informações de autenticação dos cabeçalhos (uid, client e access_token).
+
+## Testando a Aplicação localmente
+
+Se desejar testar a aplicação localmente, siga os passos abaixo:
+
+1. Certifique-se de ter instalado o Docker em sua máquina.
+
+2. Construa o container utilizando o comando:
+`$ docker-compose up --build`
+
+3. Acesse o seu container com o comando:
+`$ docker exec -it nome_do_container /bin/bash`
+
+4. Dentro do container, execute o comando para instalar as dependências:
+`$ bundle install`
+
+5. Crie o banco de dados e execute as migrações:
+`$ bundle exec rails db:create && bundle exec rails db:migrate`
+
+6. Para rodar os testes dentro do container após a configuração, execute o comando:
+`$ bundle exec rspec spec`
+
+7. Execute a aplicação com o comando:
+`$ bundle exec rails s`
+
+Em seguida refaça os passos da aplicação online porém utilize [http://localhost:3000/](http://localhost:3000/) para acessar a aplicação localmente.
+## Tecnologias Utilizadas
+
+Nossa aplicação foi desenvolvida utilizando as seguintes tecnologias:
+
+- Ruby
+- Ruby on Rails
+- AWS EC2
+- NGinx
+- SQL
+- Postgres
+- Git

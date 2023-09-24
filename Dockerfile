@@ -3,6 +3,8 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
+RUN gem install bundler:2.3.19
+RUN gem install nokogiri --platform=ruby
 RUN bundle install
 
 COPY entrypoint.sh /usr/bin

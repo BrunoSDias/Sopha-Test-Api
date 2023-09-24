@@ -49,7 +49,7 @@ Agora a API deve estar disponível em `http://localhost:3000/`.
 
 ### Deploy no EC2
 
-A API também está disponível no endereço: [http://18.219.103.88:3000](http://18.219.103.88:3000)
+A API também está disponível no endereço: [http://18.219.103.88:3000](http://18.219.103.88:300)
 conforme solicitado no desafio.
 
 ### Como Rodar os Testes
@@ -77,4 +77,4 @@ Descrição rápida dos principais endpoints, como:
 - `DELETE /stores/:id` - Deleta uma loja específica
 - `GET /stores/:id/`  - Retorna uma loja específica`
 
-> Para detalhes completos, consulte a documentação Swagger em `http://localhost:3000/api-docs/index.html` em ambiente local ou `http://18.219.103.88:3000/api-docs/index.html`.
+> Para detalhes completos, consulte a documentação Swagger em `http://localhost:3000/api-docs/index.html`.

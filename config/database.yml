@@ -1,13 +1,13 @@
 default: &default
   adapter: postgresql
-  host: db
+  host: localhost
   username: postgres
   password: password
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: sopha-api-test_development
+  database: sopha_development
 test:
   <<: *default
   database: sopha-api-test_test

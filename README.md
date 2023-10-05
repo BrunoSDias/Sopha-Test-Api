@@ -1,62 +1,162 @@
+# SOPHA TEST API
+
+A seguinte API é responsável por gerenciar um catálogo de lojas (Store) vinculadas e gerenciadas por um usuário (User).
+A API pode ser executada localmente ou através da API hospedada na AWS EC2 <link>.
+Desenvolvido por Juliano Rohde.
+
+## Instalation
+
+1. Requisitos:
+	- Ruby 2.7.1 ou docker e docker-compose;
+	- Clone o repositório: 'LINK AQUI'
+
+## How to configure
+
+# Local usage
+
+1. Execute o servidor: 'rails server'
+2. Execute 'rails db:setup' para instalar o bundle e configurar automaticamente o banco de dados
 
 
-# Avaliação Sopha
-## Para iniciar
-Realize um **fork** desse repositório
-**clone** o projeto do fork
+# Docker
 
-Execute o comando para provisionar a aplicação:
+1. Install docker (https://docs.docker.com/get-docker/) and docker-compose (https://docs.docker.com/compose/install/)
+2. Run 'docker-compose up -d --build'
+3. Run 'docker exec -it rails-api bash'
+4. Run 'rails db:setup' for install bundle and configure db
 
-    $ docker-compose up --build
+## How to run Rspec Tests (local or docker)
 
-## Sobre
-O candidato deve fazer um **fork** deste repositório e realizar um **pull request** com o código do teste pronto antes do prazo de vencimento do desafio.
+1. Para rodar todos os testes digite 'rspec' no console
+2. Para rodar os testes de controller digite: 'rspec spec/controllers'
+3. Para rodar os testes de model digite: 'rspec spec/models'
 
-## Objetivo
+## Como testar a API localmente
 
-O candidato deve criar uma **API** responsável por gerenciar um catalogo de lojas (**Store**)  e hospedá-lo em uma instância **AWS EC2**.
+1. Install postman, insomnia or another application to test APIs
 
-## Estrutura
-Essa **API** deve ser constituída por:
+# User
 
- - Um Model **User** com os atributos **name, email e password**
- - Um Model **Store** com os atributos **name, user_id**
- -  Onde:
-	 - **Store** pertence à **User**
-	 
-## Funcionalidade
-As seguintes requisições devem ser possíveis:
+1. Para testar o metodo #create do User:
+	Method: POST
+	URL: http://localhost:3000/signup
+	Body(raw/JSON):
+		{
+			"user": {
+					"email": "test@test.com",
+					"password": "123456",
+					"name": "Test"
+			}
+		}
+	Authorization: none
 
- - Processo de autenticação de um **User** (Signup, Signin)
-  - Requisições de **CRUD** (Create, Read, Update, Delete) para **Store**  (Estas requisições só devem ser possíveis se o usuário estiver autenticado)
+	-> Deve retornar:
 
+		{
+				"user": {
+						"name": "juliano",
+						"email": "juliano3@test.com"
+				}
+		}
 
-## Conhecimentos necessários
--  Ruby
--  Ruby on Rails
--  AWS EC2
--  Servidores HTTP
--  SQL
--  Postgres 
--   Git
+2. Para testar o #login do User:
+	Method: POST
+	URL: http://localhost:3000/login/
+	Body (raw/JSON):
+		{
+  	  "user": {
+    	    "email": "test@test.com",
+      	  "password": "123456"
+    	}
+		}
+	Authorization: none
 
-## Requisitos
+	-> Deve retornar:
 
--   Docker
+		{
+			"user": {
+					"name": "test",
+					"email": "test@test.com",
+					"token": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4NTljODc3Yi0zY2FiLTQ0Y2ItYWYzNy1kMWQ0YWJmYjQ4ODQiLCJzdWIiOiIyIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjk2NTMxNDU5LCJleHAiOjE2OTY1MzMyNTl9.wj9PqqDoczAqXNRriMPxWNpqSlgN-0PzV0_Oo8Vw8KQ"
+			}
+		}
+	
+	3. Para testar o #logout do User:
+	Method: DELETE
+	URL: http://localhost:3000/logout/
+	Body (raw/JSON): none
+	Authorization: <inserir o token que recebeu no login>
 
-## O que esperamos da solução
- -  A aplicacão **DEVE** estar hospedada em uma instância **AWS EC2**
- -  Que todas as ações requisitadas funcionem.
- -  Que haja testes automatizados sobre essas ações (TDD).
- -  Que seja possível testar essas ações do ambiente local (Localhost) na **aplicação hospedada**.
- -  Instruções de uso no README.md
-	 - Como rodar os testes da aplicação
-	 - Quais os **endpoints** devo acessar para realizar as requisições esperadas na **aplicação hospedada**
-	 - Quais os **parâmetros** e/ou **cabeçalhos**  devo enviar para realizar cada uma das requisições esperadas na **aplicação hospedada**
- -  É **Opcional** utilizar **docker** na **aplicação hospedada**.
- - Uso de **gems** adicionais também é opcional
+	-> Deve retornar:
+		status 200
 
-## O que avaliaremos
+# Store
 
- - Funcionalidade
- - Boas práticas
+1. Para testar o método #create do User:
+	Method: POST
+	URL: http://localhost:3000/stores/
+	Authorization: <inserir um token de usuário válido>
+	Body:
+		{
+    	"name": "Test Store API"
+		}
+
+	-> Deve retornar:
+	status 201
+
+		{
+			"store": {
+					"id": 1,
+					"name": "Test Store API"
+			}
+		}
+
+2. Para testar o #index da Store:
+	Method: GET
+	URL: http://localhost:3000/stores/
+	Authorization: <inserir um token de usuário válido>
+	Body: none
+
+	-> Deve retornar:
+	status 200
+
+		{
+			"stores": [
+					{
+							"id": 1,
+							"name": "Test Store API"
+					}
+			]
+		}
+
+3. Para testar o #show da Store:
+	Method: GET
+	URL: http://localhost:3000/stores/:id
+	Authorization: <inserir um token de usuário válido>
+	Body: none
+
+	-> Deve retornar:
+	status 200 + Store que buscou pelo ID (:id no URL)
+
+4. Para testar o #update da Store:
+	Method: PUT or PATCH
+	URL: http://localhost:3000/stores/:id
+	Authorization: <inserir um token de usuário válido>
+	Body:
+		{
+			"name": "Updated Test Store API 3.1"
+		}
+
+		-> Deve retornar:
+		status 200 + Store com o novo nome
+	
+	5. Para testar o #destroy da Store:
+		Method: DELETE
+		URL: http://localhost:3000/stores/:id
+		Authorization: <inserir um token de usuário válido>
+		Body: none
+
+		-> Deve retornar:
+		status 204
+
+## Como testar a API hospedada na AWS EC2

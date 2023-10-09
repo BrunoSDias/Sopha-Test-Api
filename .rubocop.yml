@@ -1,0 +1,21 @@
+AllCops:
+  Excludes:
+  TargetRubyVersion: 2.7.1
+
+Metrics/LineLength:
+  Max: 150
+
+MethodLength:
+  Max: 35
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+FirstArgumentIndentation:
+  Enabled: false

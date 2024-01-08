@@ -23,8 +23,13 @@ Confira a documentação completa dos testes no arquivo fornecido abaixo. Este l
 
 Arquivo:
 
-[Code Challenge.postman_collection.json](https://github.com/BrunoSDias/Sopha-Test-Api/files/13862909/Code.Challenge.postman_collection.json)
+[Code Challenge.postman_collection.json](https://github.com/BrunoSDias/Sopha-Test-Api/files/13863901/Code.Challenge.postman_collection.json)
 
+**Postman**
+
+![Postman test](https://github.com/BrunoSDias/Sopha-Test-Api/assets/69633173/c613fc21-fb8a-4964-a72a-632ec1162ec3)
+
+*Na imagem acima, os testes estão organizados como "Local" e "AWS EC2", assim facilita a realização dos testes.*
 
 **Abaixo está a documentação explicativa sobre como realizar os testes:**
 

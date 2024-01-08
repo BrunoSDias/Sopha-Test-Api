@@ -6,6 +6,14 @@
 
 # Ignore bundler config.
 /.bundle
+.env
+/coverage
+/.idea
+bin
+assets
+overview.html
+simple_cov_index.html
+smells_index.html
 
 # Ignore all logfiles and tempfiles.
 /log/*
